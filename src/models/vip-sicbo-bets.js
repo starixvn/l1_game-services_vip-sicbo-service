@@ -26,7 +26,7 @@ const schema = new mongoose.Schema({
     freeBet: { type: Boolean, default: false },
 });
 
-const bets = mongoose.model("VipSicbo_cuoc", schema);
-const tmpBets = mongoose.model("VipSicbo_tmpcuoc", schema);
+const bets = mongoose.model("VipSicBo_cuoc", schema);
+const tmpBets = mongoose.model("VipSicBo_tmpcuoc", schema);
 
 export { bets, tmpBets };

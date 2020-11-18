@@ -1,14 +1,16 @@
 import { Table } from "sc-game-base";
 
 import appConfigs from "./app-configs";
+import { Bot, GameCron } from "./crons";
 import gameSettings from "./game-settings";
 import { DiceRandom } from "./helpers";
 import { bets, tmpBets } from "./models/vip-sicbo-bets";
 import VipSicboRounds from "./models/vip-sicbo-rounds";
+import Startup from "./startup";
 
 const generateResult = () => {
     const result = DiceRandom.random();
-    console.log(result);
+
     return result;
 };
 
@@ -46,7 +48,8 @@ const run = async () => {
         null
     );
 
-    const startup = new Table.TableGameStartup(appConfigs, definition, gameData);
+    const gameCron = new GameCron(definition, gameData, new Bot(definition, gameData));
+    const startup = new Startup(appConfigs, definition, gameData, gameCron);
     const app = new Table.TableGameApp(appConfigs, definition, gameData, startup);
 
     await app.run();

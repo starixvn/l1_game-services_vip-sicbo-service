@@ -5,6 +5,7 @@ export default {
         wholeRound: 42,
         placingBets: 30,
         lockingBet: 5,
+        shakeThePlateDuration: 3,
     },
     choices: ["big", "small", "odd", "even", "1point", "2points", "3points", "4points", "5points", "6points"],
     choicesMapper: {
